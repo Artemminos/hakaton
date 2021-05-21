@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {withRouter} from "react-router";
+import {compose} from "redux";
+import {Routes} from "./components/Routes";
+import { useDispatch, useSelector } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import {configResponsive, useLocalStorageState, useResponsive, useToggle} from 'ahooks';
 
-export default App;
+export const MainContext = React.createContext({})
+
+configResponsive({
+    small: 0,
+    middle: 767,
+    large: 940,
+    extra_large: 1100
+});
+
+const App = () => {
+
+    const responsive = useResponsive();
+    const [cookie, setCookie] = useLocalStorageState('cookie', false);
+    const dispatch = useDispatch();
+  //  const isAuth = useSelector();
+
+    return (
+        <div>
+            <MainContext.Provider
+                value={cookie}>
+                <Routes/>
+            </MainContext.Provider>
+        </div>
+    );
+};
+
+export default compose(
+withRouter
+)(App)
