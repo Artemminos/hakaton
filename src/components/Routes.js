@@ -1,21 +1,23 @@
 import {Route, Switch} from "react-router";
 
 import React from "react";
+import RouteComponent from "./RouteComponent";
 
 export const Routes = () => {
     return (
         <div className="content-wrap">
             <Switch>
-                <Route path='/login'>
 
-                </Route>
-                <Route path='/registration'>
-
+                <Route path='/routes/:id'>
+                    <RouteComponent/>
                 </Route>
 
 
-                <Route path='*' render={()=><div>нет страницы</div>}/>
-          </Switch>
+                <Route  path='/'>
+                    <div>главная</div>
+                </Route>
+                <Route path='*' render={() => <div>нет страницы</div>}/>
+            </Switch>
 
 
         </div>
