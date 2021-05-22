@@ -2,8 +2,10 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 15px;
 }
-.mask{
+
+.mask {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,26 +16,118 @@
 
   display: none;
 }
-.mask_show{
+
+.mask_show {
   display: block;
 }
+
 .header {
   height: 5vh;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 
-  .navLink {
-    border: 1px solid gray;
+  .header_logo {
+
+  }
+
+  .header_tools {
+    .header_icon {
+      font-size: 20px;
+      color: #BDBDBD;
+      margin-left: 15px;
+    }
   }
 }
 
 .content {
-  height: 100%;
+  .link {
+    color: black;
+  }
+
+  .favorites {
+    position: absolute;
+    right: 16px;
+    display: flex;
+    z-index: 20;
+  }
+
+  .addRoutePopUp {
+    position: absolute;
+    height: 28.5%;
+    width: 92%;
+    background-color: #4F4F4F;
+    z-index: 30;
+    left: 4%;
+    border-radius: 7px;
+    top: 30%;
+    padding: 10px 15px;
+    transition: all .2s;
+    flex-direction: column;
+
+    .addRouteHeader {
+      display: flex;
+      justify-content: space-between;
+      .title{
+
+        color: #ffffff;
+      }
+    }
+
+
+  }
+
+  .addRouteBtn {
+    margin-bottom: 27px;
+
+
+  }
+
+  .allRouteTime {
+    padding-left: 10px;
+    margin-top: 5px;
+    color: #828282;
+  }
+
+  .arrowLink {
+    margin-left: 5px;
+    font-size: 14px;
+  }
 
   .route {
     display: flex;
+  }
+
+  .ant-btn {
+    border: none;
+  }
+
+  .horizontalLine {
+    border: solid #BDBDBD 1px;
+    margin-bottom: 5px;
+  }
+
+  .popupButtonWrap {
+    display: flex;
+    padding-left: 14%;
+    padding-top: 15px;
+  }
+
+  .event {
+    display: flex;
+  }
+
+  .event_wrapper {
+
+  }
+
+  .event_image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .event_description {
+
   }
 
   .popup {
@@ -47,21 +141,44 @@
     transform: translateY(100%);
     z-index: 10;
   }
-  .popup_content{
-      position: relative;
-      max-height: 348px;
-      background: #fff;
-      height: 100%;
-      padding: 24px 4px 60px 24px;
-      overflow: auto;
-      box-shadow: 0 4px 7px rgba(142, 144, 153, 0.1);
-      border-radius: 6px;
+
+  .popup_content {
+    position: relative;
+    max-height: 348px;
+    background: #fff;
+    height: 100%;
+    padding: 14px 4px 24px 11px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 7px rgba(142, 144, 153, 0.1);
+    border-radius: 6px;
   }
-  .popup_show{
+
+  .popup_show {
     transform: translateY(0);
   }
 }
 
-.footer {
-  height: 5vh;
+.footer_wrapper {
+  background-color: #4F4F4F;
+  position: fixed;
+  height: 46px;
+  width: 51vh;
+  border-radius: 7px;
+  bottom: 12px;
+  left: 15px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 15px;
+
+  .nav_bar_icon {
+    margin-top: 13px;
+    color: #ffffff;
+    font-size: 20px;
+  }
+}
+.hide{
+  display: none;
 }

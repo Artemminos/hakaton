@@ -1,7 +1,19 @@
 
 const actions = {
-    setUserData: data => ({
-        type: 'USER:SET_DATA',
+    setUserFavorites: data => ({
+        type: 'USER:SET_FAVORITES',
+        payload: data
+    }),
+    removeUserFavorites: data => ({
+        type: 'USER:REMOVE_FAVORITES',
+        payload: data
+    }),
+    createRoute: data => ({
+        type: 'USER:CREATE_ROUTE',
+        payload: data
+    }),
+    pushItemToRoute: data => ({
+        type: 'USER:PUSH_ITEM_TO_ROUTE',
         payload: data
     }),
 

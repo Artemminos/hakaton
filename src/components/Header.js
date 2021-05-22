@@ -1,24 +1,13 @@
 import React from "react";
 import styles from '../common/mainStyles.module.scss';
-import {Link} from "react-router-dom";
+import {ShareAltOutlined,UserOutlined} from '@ant-design/icons';
 
 export const Header = () => {
     return (
         <div className={styles.header}>
-            <div className={styles.navLink}>
-                <Link to={'/'}>
-                    Главная
-                </Link>
-            </div>
-            <div className={styles.navLink}>
-                <Link to={'/routes'}>
-                    Маршруты
-                </Link>
-            </div>
-            <div className={styles.navLink}>
-                <Link to={'/routes'}>
-                    Маршруты
-                </Link>
+            <div className={styles.header_logo}>Logo</div>
+            <div className={styles.header_tools}>
+                <UserOutlined className={styles.header_icon} />
             </div>
         </div>
     )
