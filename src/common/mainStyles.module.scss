@@ -5,6 +5,12 @@
   margin: 15px;
 }
 
+.image {
+  width: 100%; /* Ширина изображений */
+  height: 100%; /* Высота изображении */
+  object-fit: cover; /* Вписываем фотографию в область */
+}
+
 .mask {
   position: fixed;
   top: 0;
@@ -19,6 +25,10 @@
 
 .mask_show {
   display: block;
+}
+
+.icon {
+  font-size: 20px;
 }
 
 .header {
@@ -70,11 +80,36 @@
       justify-content: space-between;
 
       .title {
-
         color: #ffffff;
       }
     }
 
+
+  }
+
+  .setMarkPopup {
+    position: absolute;
+    height: 23.5%;
+    width: 92%;
+    background-color: #4F4F4F;
+    z-index: 30;
+    left: 4%;
+    border-radius: 7px;
+    top: 30%;
+    padding: 10px 15px;
+    transition: all .2s;
+    flex-direction: column;
+
+    .setMarkPopupHeader {
+      display: flex;
+      justify-content: space-between;
+
+
+    }
+
+    .title {
+      color: #ffffff;
+    }
 
   }
 
@@ -116,6 +151,43 @@
 
   .event {
     display: flex;
+    flex-direction: column;
+
+    .eventHeader {
+
+    }
+
+    .eventSlider {
+
+    }
+
+    .eventMark {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .eventPlayer {
+      display: flex;
+      justify-content: space-between;
+
+      .playerIcons {
+        font-size: 40px;
+      }
+    }
+
+    .eventInfo {
+      margin: 10px 0;
+      height: 18vh;
+      p{
+
+      }
+    }
+
+    .eventTools {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .event_wrapper {
@@ -127,9 +199,6 @@
     height: 200px;
   }
 
-  .event_description {
-
-  }
 
   .popup {
     display: block;
@@ -152,9 +221,7 @@
         margin-right: 5px;
       }
 
-      .icon {
-        font-size: 20px;
-      }
+
     }
   }
 
@@ -178,11 +245,6 @@
       }
     }
 
-.image{
-  width: 100%; /* Ширина изображений */
-  height: 100%; /* Высота изображении */
-  object-fit: cover; /* Вписываем фотографию в область */
-}
 
     .about {
       height: 30vh;
