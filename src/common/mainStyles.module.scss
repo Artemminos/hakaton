@@ -68,7 +68,8 @@
     .addRouteHeader {
       display: flex;
       justify-content: space-between;
-      .title{
+
+      .title {
 
         color: #ffffff;
       }
@@ -140,6 +141,63 @@
     transition: all .2s;
     transform: translateY(100%);
     z-index: 10;
+
+    .info {
+      display: flex;
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      b {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      .icon {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .profileWrapper {
+    display: flex;
+    flex-direction: column;
+
+    .profileInfo {
+      display: flex;
+      height: 12vh;
+
+      .fio {
+        margin-left: 10px;
+      }
+
+      .avatar {
+        background-color: grey;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+      }
+    }
+
+.image{
+  width: 100%; /* Ширина изображений */
+  height: 100%; /* Высота изображении */
+  object-fit: cover; /* Вписываем фотографию в область */
+}
+
+    .about {
+      height: 30vh;
+      margin-top: 5px;
+      align-items: flex-start;
+    }
+
+    .content {
+      display: flex;
+    }
+
+    .content_item {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .popup_content {
@@ -154,6 +212,11 @@
     justify-content: space-between;
     box-shadow: 0 4px 7px rgba(142, 144, 153, 0.1);
     border-radius: 6px;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .popup_show {
@@ -179,6 +242,7 @@
     font-size: 20px;
   }
 }
-.hide{
+
+.hide {
   display: none;
 }

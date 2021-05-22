@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../common/mainStyles.module.scss';
 import {Steps, Rate, Input, Space, Button, TreeSelect} from 'antd';
 import {withRouter} from "react-router";
-import {ArrowRightOutlined, DeleteOutlined, CloseOutlined, PlusCircleOutlined, PlusOutlined} from '@ant-design/icons';
+import {ArrowRightOutlined, DeleteOutlined,DollarOutlined, CloseOutlined,FieldTimeOutlined, PlusCircleOutlined, PlusOutlined} from '@ant-design/icons';
 import classNames from 'class-names';
 import {MainContext} from "../App";
 import {useClickAway, useTitle} from 'ahooks';
@@ -314,6 +314,13 @@ const PopUp = React.forwardRef((prop, ref) => {
                 <div className={styles.horizontalLine}/>
 
                 <p>{prop.item.description}</p>
+                <div className={styles.info}>
+
+                    <FieldTimeOutlined className={styles.icon}/>
+                    <b>1 час 30 минут</b>
+                    <DollarOutlined className={styles.icon}/>
+                    <b>Расход 200 Р</b>
+                </div>
                 <span>
                                     <a className={styles.link} href="#">Подробнее</a>
                     <ArrowRightOutlined className={styles.arrowLink}/>

@@ -3,6 +3,7 @@ import {Route, Switch} from "react-router";
 import React from "react";
 import RouteComponent from "./RouteComponent";
 import EventComponent from "./EventComponent";
+import {Profile} from "./profile";
 
 export const Routes = () => {
     return (
@@ -18,6 +19,9 @@ export const Routes = () => {
 
                 <Route path='/event'>
                     <EventComponent/>
+                </Route>
+                <Route path='/profile'>
+                    <Profile/>
                 </Route>
 
 

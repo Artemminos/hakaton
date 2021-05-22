@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
-
+import './common/sliderStyle.scss'
 import App from './App';
 
 import {Provider} from 'beautiful-react-redux';

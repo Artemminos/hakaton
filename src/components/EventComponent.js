@@ -1,22 +1,13 @@
 import React from 'react';
 import styles from '../common/mainStyles.module.scss'
-import Slider from "react-slick";
-import img1 from '../static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg'
-import img2 from '../static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg'
-import img3 from '../static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg'
-import img4 from '../static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg'
-import img5 from '../static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg'
+import img1 from "../static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg";
+import img2 from "../static/jekskursija-v-grajvoron-iz-belgoroda-2.jpg";
+import img3 from "../static/jekskursija-v-grajvoron-iz-belgoroda-3.jpg";
+import img4 from "../static/jekskursija-v-grajvoron-iz-belgoroda-4.jpg";
+import img5 from "../static/jekskursija-v-grajvoron-iz-belgoroda-5.jpg";
 
 const EventComponent = () => {
-    const sliderRef = React.useRef();
-    let settings = {
-        infinite: true,
-        speed: 1200,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        adaptiveHeight: true
 
-    };
     let arr = [
         {
             src: img1,
