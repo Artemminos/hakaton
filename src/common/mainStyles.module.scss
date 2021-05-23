@@ -10,7 +10,20 @@
   height: 100%; /* Высота изображении */
   object-fit: cover; /* Вписываем фотографию в область */
 }
+.sliderItem{
+  color: white;
+  b{
+    display: flex;
+    justify-content: end;
+    color: #ffffff;
+    padding-top: 57px;
+    padding-left: 12px;
 
+
+    font-size: 18px;
+
+  }
+}
 .mask {
   position: fixed;
   top: 0;

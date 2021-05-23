@@ -7,6 +7,7 @@ import img3 from "../static/jekskursija-v-grajvoron-iz-belgoroda-3.jpg";
 import img4 from "../static/jekskursija-v-grajvoron-iz-belgoroda-4.jpg";
 import img5 from "../static/jekskursija-v-grajvoron-iz-belgoroda-5.jpg";
 import {connect} from "beautiful-react-redux";
+import {Link} from "react-router-dom";
 
 const contentStyle = {
     height: '160px',
@@ -35,7 +36,6 @@ let arr = [
     },
 ]
 const Profile = ({favorites}) => {
-    console.log(favorites)
     return (
         <div className={styles.profileWrapper}>
             <div className={styles.profileInfo}>
@@ -50,16 +50,29 @@ const Profile = ({favorites}) => {
             <div>
                 <h1 className={styles.profileTitle}>Мои избранные</h1>
                 <Carousel>
-                    {arr.map((item, index) => {
-                        return (
-                            <div>
-                                <div style={contentStyle}>
-                                    <img className={styles.image} src={item.src} alt={item.alt}/>
-                                </div>
-                            </div>
-                        )
-                    })}
 
+
+                    {
+                        favorites.map((item, index) => {
+                            return (
+                                <div>
+                                    <Link to={`/favorites/${item.id}`}>
+                                        <div style={contentStyle}>
+                                            <div>
+                                                <div className={styles.sliderItem}
+                                                     style={{
+                                                         backgroundImage: `url(${img4})`,
+                                                         backgroundSize: 'contain'
+                                                     }}>
+                                                    <b>{item.name}</b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )
+                        })
+                    }
 
                 </Carousel>
 

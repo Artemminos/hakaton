@@ -32,8 +32,16 @@ const actions = {
         type: 'USER:FETCH_ROUTE_BY_ID',
         payload: data
     }),
+    getFavoritesById: data => ({
+        type: 'USER:GET_FAVORITES_BY_ID',
+        payload: data
+    }),
     deleteRouteItem: data => ({
         type: 'USER:DELETE_ROUTE_ITEM',
+        payload: data
+    }),
+    deleteFavoriteItem: data => ({
+        type: 'USER:DELETE_FAVORITE_ITEM',
         payload: data
     }),
 

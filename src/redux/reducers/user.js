@@ -6,6 +6,7 @@ const initState = {
     events: [],
     selectEvent: [],
     selectRoute: [],
+    selectFavorites: [],
 
 };
 
@@ -68,6 +69,15 @@ export default (state = initState, {type, payload}) => {
                 })
             })
         }
+        case'USER:GET_FAVORITES_BY_ID': {
+            return produce(state, draft => {
+                state.favorites.forEach((item, index) => {
+                    if (item.id === payload) {
+                        draft.selectFavorites = item
+                    }
+                })
+            })
+        }
         case'USER:FETCH_ROUTE_BY_ID': {
             return produce(state, draft => {
                 state.routes.forEach((item, index) => {
@@ -88,6 +98,23 @@ export default (state = initState, {type, payload}) => {
                     items: state.selectRoute.items.filter((elem) => elem.id !== payload)
                 }
                 draft.selectRoute = newArr;
+            })
+        }
+        case'USER:DELETE_FAVORITE_ITEM': {
+            return produce(state, draft => {
+                let newArr = {
+                    name: state.selectFavorites.name,
+                    id:state.selectFavorites.id,
+                    data: {
+                        description: state.selectFavorites.data.description,
+                        image: state.selectFavorites.data.image,
+                        items: state.selectFavorites.data.items.filter((elem) => elem.id !== payload),
+                        mark:state.selectFavorites.data.mark,
+                        name:state.selectFavorites.data.name,
+                        _id:state.selectFavorites.data._id
+                    },
+                }
+                draft.selectFavorites = newArr;
             })
         }
         default:

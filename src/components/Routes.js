@@ -6,7 +6,7 @@ import EventComponent from "./EventComponent";
 import Profile from "./profile";
 import MainScreen from "./MainScreen";
 import RoutesList from "./RoutesList";
-
+import FavoritesComponent from "./FavoritesComponent";
 export const Routes = () => {
     return (
         <div className="content-wrap">
@@ -17,6 +17,10 @@ export const Routes = () => {
                 </Route>
                 <Route path='/routes/:id'>
                     <RouteComponent/>
+                </Route>
+
+                <Route path='/favorites/:id'>
+                    <FavoritesComponent/>
                 </Route>
 
                 <Route path='/event/:id'>
