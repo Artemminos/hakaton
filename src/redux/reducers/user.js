@@ -17,8 +17,15 @@ export default (state = initState, {type, payload}) => {
         case'USER:SET_FAVORITES': {
             return produce(state, draft => {
                 const newFavoriteItem = {
+                    image: payload.image,
+                    distance: payload.distance,
+                    cost: payload.cost,
+                    time: payload.time,
+                    description: payload.description,
+                    mark: payload.mark,
+                    date: payload.mark,
                     name: payload.name,
-                    id:payload._id,
+                    id: payload._id,
                     data: payload
                 }
                 draft.favorites.push(newFavoriteItem)
@@ -93,12 +100,12 @@ export default (state = initState, {type, payload}) => {
                     _id: state.selectRoute._id,
                     name: state.selectRoute.name,
                     image: state.selectRoute.image,
-                    distance:state.selectRoute.distance,
-                    cost:state.selectRoute.cost,
-                    time:state.selectRoute.time,
+                    distance: state.selectRoute.distance,
+                    cost: state.selectRoute.cost,
+                    time: state.selectRoute.time,
                     description: state.selectRoute.description,
                     mark: state.selectRoute.mark,
-                    date:state.selectRoute.mark,
+                    date: state.selectRoute.mark,
                     items: state.selectRoute.items.filter((elem) => elem.id !== payload)
                 }
                 draft.selectRoute = newArr;
@@ -108,14 +115,14 @@ export default (state = initState, {type, payload}) => {
             return produce(state, draft => {
                 let newArr = {
                     name: state.selectFavorites.name,
-                    id:state.selectFavorites.id,
+                    id: state.selectFavorites.id,
                     data: {
                         description: state.selectFavorites.data.description,
                         image: state.selectFavorites.data.image,
                         items: state.selectFavorites.data.items.filter((elem) => elem.id !== payload),
-                        mark:state.selectFavorites.data.mark,
-                        name:state.selectFavorites.data.name,
-                        _id:state.selectFavorites.data._id
+                        mark: state.selectFavorites.data.mark,
+                        name: state.selectFavorites.data.name,
+                        _id: state.selectFavorites.data._id
                     },
                 }
                 draft.selectFavorites = newArr;

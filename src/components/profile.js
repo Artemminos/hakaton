@@ -15,26 +15,7 @@ const contentStyle = {
     lineHeight: '160px',
     textAlign: 'center',
 };
-let arr = [
-    {
-        src: img1,
-        alt: 'Замок'
-    }
-    , {
-        src: img2,
-        alt: 'Круглое здание'
-    }
-    , {
-        src: img3,
-        alt: 'холл'
-    }, {
-        src: img4,
-        alt: 'гуси гуси га га га '
-    }, {
-        src: img5,
-        alt: 'гуси гуси га га га '
-    },
-]
+
 const Profile = ({favorites}) => {
     return (
         <div className={styles.profileWrapper}>
@@ -61,7 +42,7 @@ const Profile = ({favorites}) => {
                                             <div>
                                                 <div className={styles.sliderItem}
                                                      style={{
-                                                         backgroundImage: `url(${img4})`,
+                                                         backgroundImage: `url(${item.image})`,
                                                          backgroundSize: 'contain'
                                                      }}>
                                                     <b>{item.name}</b>

@@ -4,12 +4,12 @@ import styles from '../common/mainStyles.module.scss'
 import classNames from 'class-names'
 const Sidebar = () => {
     const handlers = useSwipeable({
-        onSwipedLeft: () => {
+      /*  onSwipedLeft: () => {
             sidebarToggle(true)
         },
         onSwipedRight: () => {
             sidebarToggle(false)
-        },
+        },*/
 
     });
 
@@ -18,7 +18,7 @@ const Sidebar = () => {
 
                 <div  {...handlers} className="sidebar bstu__sidebar">
 
-
+dasd
                 </div>
 
 
