@@ -58,6 +58,7 @@ const MainScreen = ({events}) => {
             <div className={styles.homeContent}>
                 <h2>Новости региона</h2>
                 {events.map((item, index) => {
+
                     return (
                         <Link to={`/event/${item.id}`}>
                             <EventItem srcAvatar={item.img[0]} text={item.name}/>
