@@ -6,7 +6,7 @@ import styles from './common/mainStyles.module.scss'
 import {configResponsive, useLocalStorageState, useResponsive, useToggle} from 'ahooks';
 import {Header} from "./components/Header";
 import {Content} from "./components/Content";
-import {Footer} from "./components/Footer";
+import Footer from "./components/Footer";
 import classNames from 'class-names';
 import actions from "./redux/actions/user";
 import img1 from "./static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg";

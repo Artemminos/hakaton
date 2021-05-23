@@ -38,7 +38,14 @@
   margin-bottom: 10px;
 
   .header_logo {
-
+    span {
+      margin-left: 10px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      color: #282828;
+    }
   }
 
   .header_tools {
@@ -361,6 +368,25 @@
 
 }
 
+.profileTitle {
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  color: #4F4F4F;
+}
+
+.profileFilters {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  color: #4F4F4F;
+}
+
 .eventItemWrapper {
   margin-top: 10px;
   height: 110px;
@@ -373,20 +399,21 @@
     object-fit: cover;
     width: 94px;
   }
-.eventItemContent{
-  margin-top: 5px;
-  margin-left: 10px;
 
-  p {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 20px;
-    letter-spacing: 0.03em;
-    color: #4F4F4F;
-    margin-bottom: 15px;
+  .eventItemContent {
+    margin-top: 5px;
+    margin-left: 10px;
+
+    p {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 20px;
+      letter-spacing: 0.03em;
+      color: #4F4F4F;
+      margin-bottom: 15px;
+    }
   }
-}
 
 }
 

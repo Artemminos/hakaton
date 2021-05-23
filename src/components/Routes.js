@@ -3,7 +3,7 @@ import {Route, Switch} from "react-router";
 import React from "react";
 import RouteComponent from "./RouteComponent";
 import EventComponent from "./EventComponent";
-import {Profile} from "./profile";
+import Profile from "./profile";
 import MainScreen from "./MainScreen";
 import RoutesList from "./RoutesList";
 
@@ -27,7 +27,7 @@ export const Routes = () => {
                 </Route>
 
 
-                <Route path='/'>
+                <Route path='/home'>
                     <MainScreen/>
                 </Route>
                 <Route path='*' render={() => <div>нет страницы</div>}/>

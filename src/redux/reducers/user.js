@@ -15,12 +15,18 @@ export default (state = initState, {type, payload}) => {
     switch (type) {
         case'USER:SET_FAVORITES': {
             return produce(state, draft => {
-                draft.favorites.push(payload)
+                const newFavoriteItem = {
+                    name: payload.name,
+                    id:payload._id,
+                    data: payload
+                }
+                draft.favorites.push(newFavoriteItem)
             })
         }
         case'USER:REMOVE_FAVORITES': {
             return produce(state, draft => {
-                draft.favorites = draft.favorites.filter((elem) => elem.id !== payload.id)
+                console.log(payload)
+                draft.favorites = draft.favorites.filter((elem) => elem.id !== payload._id)
             })
         }
         case'USER:CREATE_ROUTE': {

@@ -6,6 +6,7 @@ import img2 from "../static/jekskursija-v-grajvoron-iz-belgoroda-2.jpg";
 import img3 from "../static/jekskursija-v-grajvoron-iz-belgoroda-3.jpg";
 import img4 from "../static/jekskursija-v-grajvoron-iz-belgoroda-4.jpg";
 import img5 from "../static/jekskursija-v-grajvoron-iz-belgoroda-5.jpg";
+import {connect} from "beautiful-react-redux";
 
 const contentStyle = {
     height: '160px',
@@ -33,7 +34,8 @@ let arr = [
         alt: 'гуси гуси га га га '
     },
 ]
-export const Profile = () => {
+const Profile = ({favorites}) => {
+    console.log(favorites)
     return (
         <div className={styles.profileWrapper}>
             <div className={styles.profileInfo}>
@@ -46,6 +48,7 @@ export const Profile = () => {
                 </div>
             </div>
             <div>
+                <h1 className={styles.profileTitle}>Мои избранные</h1>
                 <Carousel>
                     {arr.map((item, index) => {
                         return (
@@ -62,7 +65,7 @@ export const Profile = () => {
 
             </div>
             <div className={styles.about}>
-                <h2>Мои фильтры</h2>
+                <h2 className={styles.profileFilters}>Мои фильтры</h2>
                 <div className={styles.content}>
                     <div className={styles.content_item}>
                         <Checkbox>Машина</Checkbox>
@@ -90,3 +93,13 @@ export const Profile = () => {
     );
 };
 
+const mapStateToProps = (state) => {
+    return {
+        favorites: state.user.favorites
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

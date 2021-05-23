@@ -2,7 +2,15 @@ import React from 'react';
 import styles from '../common/mainStyles.module.scss';
 import {Steps, Rate, Input, Space, Button, TreeSelect} from 'antd';
 import {withRouter} from "react-router";
-import {ArrowRightOutlined, DeleteOutlined,DollarOutlined, CloseOutlined,FieldTimeOutlined, PlusCircleOutlined, PlusOutlined} from '@ant-design/icons';
+import {
+    ArrowRightOutlined,
+    DeleteOutlined,
+    DollarOutlined,
+    CloseOutlined,
+    FieldTimeOutlined,
+    PlusCircleOutlined,
+    PlusOutlined
+} from '@ant-design/icons';
 import classNames from 'class-names';
 import {MainContext} from "../App";
 import {useClickAway, useTitle} from 'ahooks';
@@ -17,6 +25,7 @@ const RouteComponent = ({
                             createRoute,
                             removeUserFavorites,
                             routes,
+                            favorite,
                             fetchRouteById,
                             pushItemToRoute,
                             currentArray,
@@ -32,12 +41,11 @@ const RouteComponent = ({
     const addRouteRef = React.useRef(null);
     const routeRef = React.useRef(null);
 
-
     const context = React.useContext(MainContext);
 
-    React.useEffect(()=>{
+    React.useEffect(() => {
         fetchRouteById(id)
-    },[id,location])
+    }, [id, location])
 
     useClickAway(() => {
         setPopStatus(true)
@@ -58,8 +66,8 @@ const RouteComponent = ({
         <div ref={routeRef} className={styles.route}>
             <div className={styles.favorites}>
                 <Rate count={1} onChange={(e) => {
-                    favoritesStatus && setFavorites(currentArray.items)
-                    !favoritesStatus && removeUserFavorites(currentArray.items)
+                    !favoritesStatus && setFavorites(currentArray)
+                    favoritesStatus && removeUserFavorites(currentArray)
                     setFavoriteStatus(e)
                 }} value={favoritesStatus}/>
                 <p className={styles.allRouteTime}> 7 Часов</p>
@@ -211,7 +219,7 @@ const mapDispatchToProps = (dispatch) => {
         removeUserFavorites: (prop) => dispatch(actions.removeUserFavorites(prop)),
         createRoute: (prop) => dispatch(actions.createRoute(prop)),
         pushItemToRoute: (prop) => dispatch(actions.pushItemToRoute(prop)),
-        deleteRouteItem:(prop)=>dispatch(actions.deleteRouteItem(prop)),
+        deleteRouteItem: (prop) => dispatch(actions.deleteRouteItem(prop)),
         fetchRouteById: (prop) => dispatch(actions.fetchRouteById(prop)),
 
     }
