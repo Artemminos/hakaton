@@ -11,7 +11,7 @@ import classNames from "class-names";
 import {
     ArrowRightOutlined, CloseOutlined,
     DeleteOutlined,
-    DollarOutlined,
+    DollarCircleOutlined,
     EnvironmentOutlined,
     FieldTimeOutlined,
     PlusCircleOutlined,
@@ -109,18 +109,18 @@ const EventComponent = () => {
                 ref={popUpRef} popUpRate={popUpRate}
                 setPopRate={setPopRate}/>
             <div className={styles.eventInfo}>
-                <div>
-                    <EnvironmentOutlined />
+                <div className={styles.eventInfoItem}>
+                    <EnvironmentOutlined className={styles.icon} />
                     <p>расстояние много</p>
 
                 </div>
-                <div>
-                    <FieldTimeOutlined />
+                <div className={styles.eventInfoItem}>
+                    <FieldTimeOutlined className={styles.icon} />
                     <p>расстояние много</p>
 
                 </div>
-                <div>
-                  <DollarCircleOutlined />
+                <div className={styles.eventInfoItem}>
+                  <DollarCircleOutlined className={styles.icon}/>
                     <p>расстояние много</p>
 
                 </div>

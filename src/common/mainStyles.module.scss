@@ -179,14 +179,25 @@
     .eventInfo {
       margin: 10px 0;
       height: 18vh;
-      p{
+      .eventInfoItem{
+        display: flex;
+        .icon{
+          font-size: 20px;
+          margin-right: 5px;
+          color: #BDBDBD;
+        }
+        p{
+          font-size: 15px;
 
+        }
       }
     }
 
     .eventTools {
       display: flex;
       flex-direction: column;
+      position: relative;
+      top: 109px;
     }
   }
 
