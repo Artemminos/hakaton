@@ -9,8 +9,7 @@ const EventItem = ({text, srcAvatar, alt, description, mark}) => {
             <img src={srcAvatar} alt={alt}/>
             <div className={styles.eventItemContent}>
                 <p>{text}</p>
-                <p>{description}</p>
-                <Rate count={5} defaultValue={mark} />
+                <p style={{marginTop:'25px'}}>Оценка {mark} </p>
             </div>
         </div>
     );
