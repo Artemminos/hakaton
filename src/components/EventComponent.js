@@ -12,7 +12,7 @@ import {
     PlusCircleOutlined,
     PauseCircleOutlined,
     PlayCircleOutlined,
-    SoundOutlined, DollarOutlined
+    SoundOutlined, DollarOutlined, HeartOutlined
 } from "@ant-design/icons";
 import {MainContext} from "../App";
 import {useClickAway} from "ahooks";
@@ -94,7 +94,7 @@ const EventComponent = ({
                     setPopUpStatus(true)
                 }}>оценка {rate}</a>
                 <div className={styles.eventMarkLeftBar}>
-                    <Rate count={1} onChange={(e) => {
+                    <Rate style={{color:'red'}} character={<HeartOutlined />} count={1} onChange={(e) => {
                         !favoritesStatus && setFavorites(selectEvent)
                         favoritesStatus && removeUserFavorites(selectEvent)
                         setFavoriteStatus(e)

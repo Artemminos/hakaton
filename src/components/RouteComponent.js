@@ -8,7 +8,7 @@ import {
     DollarOutlined,
     CloseOutlined,
     FieldTimeOutlined,
-    PlusCircleOutlined,
+    PlusCircleOutlined, HeartOutlined,
 } from '@ant-design/icons';
 import classNames from 'class-names';
 import {MainContext} from "../App";
@@ -65,7 +65,7 @@ const RouteComponent = ({
     return (
         <div ref={routeRef} className={styles.route}>
             <div className={styles.favorites}>
-                <Rate count={1} onChange={(e) => {
+                <Rate style={{color:'red'}} character={<HeartOutlined />} count={1} onChange={(e) => {
                     !favoritesStatus && setFavorites(currentArray)
                     favoritesStatus && removeUserFavorites(currentArray)
                     setFavoriteStatus(e)
