@@ -289,6 +289,7 @@
     }
 
     .eventTools {
+      white-space:nowrap;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -297,10 +298,16 @@
         margin-top: 10px;
       }
       a{
+
         margin-top: 10px;
+
         border: 1px solid #11BB18;
+
         padding: 7px 117px;
+
         color: #11BB18;
+
+        display: flex;
       }
     }
   }
