@@ -15,237 +15,29 @@ const RouteComponent = ({
                             location,
                             setFavorites,
                             createRoute,
-                            favorites,
                             removeUserFavorites,
                             routes,
-                            pushItemToRoute
+                            fetchRouteById,
+                            pushItemToRoute,
+                            currentArray
                         }) => {
     let id = Number(location.pathname.slice(8));
     const [popUpStatus, setPopStatus] = React.useState(true);
 
     const [currentStep, setCurrentStep] = React.useState(0);
-    const [currentArray, setCurrentArray] = React.useState({});
     const [currentItem, setCurrentItem] = React.useState('');
     const [favoritesStatus, setFavoriteStatus] = React.useState(0);
     const popUpRef = React.useRef(null);
     const addRouteRef = React.useRef(null);
     const routeRef = React.useRef(null);
-    let arr1 = {
-        _id: 1,
-        name: 'first',
-        items: [
-            {
-                name: 'Музей',
-                time: '60м',
-                checked: false,
-                description: 'Музей природы Белогорья',
-                id: 1
-            },
-            {
-                name: 'Дача',
-                time: '60м',
-                checked: false,
-                description: 'бывшая барская дача «Дьяков сад»;',
-                id: 2
-            },
-            {
-                name: 'урочище',
-                time: '60м',
-                checked: false,
-                description: 'урочище «Осиновое» – природная лесостепная дубрава;',
-                id: 3
-            },
-            {
-                name: 'сосновый бор',
-                time: '60м',
-                checked: false,
-                description: 'сосновый бор;',
-                id: 4
-            },
-            {
-                name: 'меловые обнажения',
-                time: '60м',
-                checked: false,
-                description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
-                id: 5
-            },
-            {
-                name: 'родники',
-                time: '60м',
-                checked: false,
-                description: 'родники',
-                id: 6
-            },
-        ]
-    }
-    let arr2 = {
-        _id: 2,
-        name: 'second',
-        items: [
-            {
-                name: 'Музей',
-                time: '60м',
-                checked: false,
-                description: 'Музей природы Белогорья',
-                id: 1
-            },
-            {
-                name: 'Дача',
-                time: '60м',
-                checked: false,
-                description: 'бывшая барская дача «Дьяков сад»;',
-                id: 2
-            },
-            {
-                name: 'урочище',
-                time: '60м',
-                checked: false,
-                description: 'урочище «Осиновое» – природная лесостепная дубрава;',
-                id: 3
-            },
-            {
-                name: 'сосновый бор',
-                time: '60м',
-                checked: false,
-                description: 'сосновый бор;',
-                id: 4
-            },
-            {
-                name: 'меловые обнажения',
-                time: '60м',
-                checked: false,
-                description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
-                id: 5
-            },
-            {
-                name: 'родники',
-                time: '60м',
-                checked: false,
-                description: 'родники',
-                id: 6
-            },
 
-        ]
-    };
-    let arr3 = {
-        _id: 3,
-        name: 'third',
-        items: [
-            {
-                name: 'Музей',
-                time: '60м',
-                checked: false,
-                description: 'Музей природы Белогорья',
-                id: 1
-            },
-            {
-                name: 'Дача',
-                time: '60м',
-                checked: false,
-                description: 'бывшая барская дача «Дьяков сад»;',
-                id: 2
-            },
-            {
-                name: 'урочище',
-                time: '60м',
-                checked: false,
-                description: 'урочище «Осиновое» – природная лесостепная дубрава;',
-                id: 3
-            },
-            {
-                name: 'сосновый бор',
-                time: '60м',
-                checked: false,
-                description: 'сосновый бор;',
-                id: 4
-            },
-            {
-                name: 'меловые обнажения',
-                time: '60м',
-                checked: false,
-                description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
-                id: 5
-            },
-            {
-                name: 'родники',
-                time: '60м',
-                checked: false,
-                description: 'родники',
-                id: 6
-            },
-
-        ]
-    };
-    let arr4 = {
-        _id: 4,
-        name: 'forty',
-        items: [
-            {
-                name: 'Музей',
-                time: '60м',
-                checked: false,
-                description: 'Музей природы Белогорья',
-                id: 1
-            },
-            {
-                name: 'Дача',
-                time: '60м',
-                checked: false,
-                description: 'бывшая барская дача «Дьяков сад»;',
-                id: 2
-            },
-            {
-                name: 'урочище',
-                time: '60м',
-                checked: false,
-                description: 'урочище «Осиновое» – природная лесостепная дубрава;',
-                id: 3
-            },
-            {
-                name: 'сосновый бор',
-                time: '60м',
-                checked: false,
-                description: 'сосновый бор;',
-                id: 4
-            },
-            {
-                name: 'меловые обнажения',
-                time: '60м',
-                checked: false,
-                description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
-                id: 5
-            },
-            {
-                name: 'родники',
-                time: '60м',
-                checked: false,
-                description: 'родники',
-                id: 6
-            },
-
-        ]
-    }
-
-    React.useEffect(() => {
-        switch (id) {
-            case 1: {
-                return setCurrentArray(arr1)
-            }
-            case 2: {
-                return setCurrentArray(arr2)
-            }
-            case 3: {
-                return setCurrentArray(arr3)
-            }
-            case 4: {
-                return setCurrentArray(arr4)
-            }
-            default:
-                return []
-        }
-    }, [id]);
 
     const context = React.useContext(MainContext);
+
+    React.useEffect(()=>{
+        fetchRouteById(id)
+    },[id,location])
+
     useClickAway(() => {
         setPopStatus(true)
         context.toggle.toggle(false);
@@ -256,7 +48,7 @@ const RouteComponent = ({
             name: currentArray.name,
             items: currentArray.items.filter((elem) => elem.id !== item)
         }
-        setCurrentArray(newArr);
+        //setCurrentArray(newArr);
     }
 
     if (!currentArray.items) return <div/>
@@ -407,6 +199,7 @@ const AddRoutePopUp = React.forwardRef((props, ref) => {
 const mapStateToProps = (state) => {
     return {
         favorites: state.user.favorites,
+        currentArray: state.user.selectRoute,
         routes: state.user.routes,
     }
 }
@@ -416,6 +209,7 @@ const mapDispatchToProps = (dispatch) => {
         removeUserFavorites: (prop) => dispatch(actions.removeUserFavorites(prop)),
         createRoute: (prop) => dispatch(actions.createRoute(prop)),
         pushItemToRoute: (prop) => dispatch(actions.pushItemToRoute(prop)),
+        fetchRouteById: (prop) => dispatch(actions.fetchRouteById(prop)),
 
     }
 }

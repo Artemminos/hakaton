@@ -13,7 +13,7 @@ export const Footer = () => {
                 </Link>
             </div>
             <div >
-                <Link to={'/search'}>
+                <Link to={'/routesList'}>
                     <SearchOutlined className={styles.nav_bar_icon}/>
                 </Link>
             </div>

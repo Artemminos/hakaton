@@ -24,63 +24,339 @@ configResponsive({
     extra_large: 1100
 });
 
-const App = ({fetchEvents}) => {
-    let dataArray = [
+const App = ({fetchEvents, fetchRoutes}) => {
+    let eventDataArray = [
 
         {
             name: 'Музей',
             time: '60м',
+            distance: '10 км',
+            cost: '1000 р',
             checked: false,
             description: 'Музей природы Белогорья',
-            id: 1,
+            id: 0,
             img: [img1, img2, img3, img4, img5]
         },
         {
             name: 'Дача',
             time: '60м',
+            distance: '10 км',
+            cost: '1000 р',
             checked: false,
             description: 'бывшая барская дача «Дьяков сад»;',
-            id: 2,
+            id: 1,
             img: [img1, img2, img3, img4, img5]
         },
         {
             name: 'урочище',
             time: '60м',
+            distance: '10 км',
+            cost: '1000 р',
             checked: false,
             description: 'урочище «Осиновое» – природная лесостепная дубрава;',
-            id: 3,
+            id: 2,
             img: [img1, img2, img3, img4, img5]
         },
         {
             name: 'сосновый бор',
             time: '60м',
+            distance: '10 км',
+            cost: '1000 р',
             checked: false,
             description: 'сосновый бор;',
-            id: 4,
+            id: 3,
             img: [img1, img2, img3, img4, img5]
         },
         {
             name: 'меловые обнажения',
             time: '60м',
+            distance: '10 км',
+            cost: '1000 р',
             checked: false,
             description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
-            id: 5,
+            id: 4,
             img: [img1, img2, img3, img4, img5]
         },
         {
             name: 'родники',
             time: '60м',
+            distance: '10 км',
+            cost: '1000 р',
             checked: false,
             description: 'родники',
-            id: 6,
+            id: 5,
             img: [img1, img2, img3, img4, img5]
         },
+
+    ]
+    let routesDataArray = [
+        {
+            _id: 0,
+            name: 'zero',
+            mark:4,
+            description:'Описание маршрута',
+            image:'',
+            items: [
+                {
+                    name: 'Музей',
+                    time: '60м',
+                    checked: false,
+                    description: 'Музей природы Белогорья',
+                    id: 1
+                },
+                {
+                    name: 'Дача',
+                    time: '60м',
+                    checked: false,
+                    description: 'бывшая барская дача «Дьяков сад»;',
+                    id: 2
+                },
+                {
+                    name: 'урочище',
+                    time: '60м',
+                    checked: false,
+                    description: 'урочище «Осиновое» – природная лесостепная дубрава;',
+                    id: 3
+                },
+                {
+                    name: 'сосновый бор',
+                    time: '60м',
+                    checked: false,
+                    description: 'сосновый бор;',
+                    id: 4
+                },
+                {
+                    name: 'меловые обнажения',
+                    time: '60м',
+                    checked: false,
+                    description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
+                    id: 5
+                },
+                {
+                    name: 'родники',
+                    time: '60м',
+                    checked: false,
+                    description: 'родники',
+                    id: 6
+                },
+            ]
+        },
+        {
+            _id: 1,
+            name: 'first',
+            mark:4,
+            description:'Описание маршрута',
+            image:'',
+
+            items: [
+                {
+                    name: 'Музей',
+                    time: '60м',
+                    checked: false,
+                    description: 'Музей природы Белогорья',
+                    id: 1
+                },
+                {
+                    name: 'Дача',
+                    time: '60м',
+                    checked: false,
+                    description: 'бывшая барская дача «Дьяков сад»;',
+                    id: 2
+                },
+                {
+                    name: 'урочище',
+                    time: '60м',
+                    checked: false,
+                    description: 'урочище «Осиновое» – природная лесостепная дубрава;',
+                    id: 3
+                },
+                {
+                    name: 'сосновый бор',
+                    time: '60м',
+                    checked: false,
+                    description: 'сосновый бор;',
+                    id: 4
+                },
+                {
+                    name: 'меловые обнажения',
+                    time: '60м',
+                    checked: false,
+                    description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
+                    id: 5
+                },
+                {
+                    name: 'родники',
+                    time: '60м',
+                    checked: false,
+                    description: 'родники',
+                    id: 6
+                },
+            ]
+        },
+        {
+            _id: 2,
+            name: 'two',
+            mark:4,
+            description:'Описание маршрута',
+            image:'',
+
+            items: [
+                {
+                    name: 'Музей',
+                    time: '60м',
+                    checked: false,
+                    description: 'Музей природы Белогорья',
+                    id: 1
+                },
+                {
+                    name: 'Дача',
+                    time: '60м',
+                    checked: false,
+                    description: 'бывшая барская дача «Дьяков сад»;',
+                    id: 2
+                },
+                {
+                    name: 'урочище',
+                    time: '60м',
+                    checked: false,
+                    description: 'урочище «Осиновое» – природная лесостепная дубрава;',
+                    id: 3
+                },
+                {
+                    name: 'сосновый бор',
+                    time: '60м',
+                    checked: false,
+                    description: 'сосновый бор;',
+                    id: 4
+                },
+                {
+                    name: 'меловые обнажения',
+                    time: '60м',
+                    checked: false,
+                    description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
+                    id: 5
+                },
+                {
+                    name: 'родники',
+                    time: '60м',
+                    checked: false,
+                    description: 'родники',
+                    id: 6
+                },
+            ]
+        },
+        {
+            _id: 3,
+            name: 'three',
+            mark:4,
+            description:'Описание маршрута',
+            image:'',
+
+            items: [
+                {
+                    name: 'Музей',
+                    time: '60м',
+                    checked: false,
+                    description: 'Музей природы Белогорья',
+                    id: 1
+                },
+                {
+                    name: 'Дача',
+                    time: '60м',
+                    checked: false,
+                    description: 'бывшая барская дача «Дьяков сад»;',
+                    id: 2
+                },
+                {
+                    name: 'урочище',
+                    time: '60м',
+                    checked: false,
+                    description: 'урочище «Осиновое» – природная лесостепная дубрава;',
+                    id: 3
+                },
+                {
+                    name: 'сосновый бор',
+                    time: '60м',
+                    checked: false,
+                    description: 'сосновый бор;',
+                    id: 4
+                },
+                {
+                    name: 'меловые обнажения',
+                    time: '60м',
+                    checked: false,
+                    description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
+                    id: 5
+                },
+                {
+                    name: 'родники',
+                    time: '60м',
+                    checked: false,
+                    description: 'родники',
+                    id: 6
+                },
+            ]
+        },
+        {
+            _id: 4,
+            name: 'forth',
+            mark:4,
+            description:'Описание маршрута',
+            image:'',
+
+            items: [
+                {
+                    name: 'Музей',
+                    time: '60м',
+                    checked: false,
+                    description: 'Музей природы Белогорья',
+                    id: 1
+                },
+                {
+                    name: 'Дача',
+                    time: '60м',
+                    checked: false,
+                    description: 'бывшая барская дача «Дьяков сад»;',
+                    id: 2
+                },
+                {
+                    name: 'урочище',
+                    time: '60м',
+                    checked: false,
+                    description: 'урочище «Осиновое» – природная лесостепная дубрава;',
+                    id: 3
+                },
+                {
+                    name: 'сосновый бор',
+                    time: '60м',
+                    checked: false,
+                    description: 'сосновый бор;',
+                    id: 4
+                },
+                {
+                    name: 'меловые обнажения',
+                    time: '60м',
+                    checked: false,
+                    description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
+                    id: 5
+                },
+                {
+                    name: 'родники',
+                    time: '60м',
+                    checked: false,
+                    description: 'родники',
+                    id: 6
+                },
+            ]
+        },
+
 
     ]
     const [cookie, setCookie] = useLocalStorageState('cookie', false);
 
     React.useEffect(() => {
-        fetchEvents(dataArray)
+        fetchEvents(eventDataArray);
+        fetchRoutes(routesDataArray);
     }, [])
     const [toggleStatus, toggle] = useToggle();
     return (
@@ -107,7 +383,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchEvents: (data) => dispatch(actions.fetchEvents(data))
+        fetchEvents: (data) => dispatch(actions.fetchEvents(data)),
+        fetchRoutes: (data) => dispatch(actions.fetchRoutes(data))
     }
 }
 

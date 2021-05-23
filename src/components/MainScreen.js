@@ -9,6 +9,7 @@ import img5 from "../static/jekskursija-v-grajvoron-iz-belgoroda-5.jpg";
 import EventItem from "./EventItem";
 import {connect} from "beautiful-react-redux";
 import actions from "../redux/actions/user";
+import {Link} from "react-router-dom";
 
 const contentStyle = {
     height: '160px',
@@ -56,10 +57,11 @@ const MainScreen = ({events}) => {
             </div>
             <div className={styles.homeContent}>
                 <h2>Новости региона</h2>
-                {events.map((item,index)=>{
-                    return(
-                        <EventItem srcAvatar={item.img[0]} text={item.name}/>
-
+                {events.map((item, index) => {
+                    return (
+                        <Link to={`/event/${item.id}`}>
+                            <EventItem srcAvatar={item.img[0]} text={item.name}/>
+                        </Link>
                     )
                 })}
             </div>
@@ -73,12 +75,11 @@ const MainScreen = ({events}) => {
 
 const mapStateToProps = (state) => {
     return {
-        events:state.user.events
+        events: state.user.events
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return {
-    }
+    return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

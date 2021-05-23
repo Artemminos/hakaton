@@ -20,6 +20,18 @@ const actions = {
         type: 'USER:FETCH_EVENTS',
         payload: data
     }),
+    fetchRoutes: data => ({
+        type: 'USER:FETCH_ROUTES',
+        payload: data
+    }),
+    fetchEventsById: data => ({
+        type: 'USER:FETCH_EVENTS_BY_ID',
+        payload: data
+    }),
+    fetchRouteById: data => ({
+        type: 'USER:FETCH_ROUTE_BY_ID',
+        payload: data
+    }),
 
 
 

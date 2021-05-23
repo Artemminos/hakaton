@@ -4,6 +4,8 @@ const initState = {
     favorites: [],
     routes: [],
     events: [],
+    selectEvent: [],
+    selectRoute: [],
 
 };
 
@@ -25,7 +27,7 @@ export default (state = initState, {type, payload}) => {
             return produce(state, draft => {
                 const id = String(Math.random()).substr(3)
                 const newRoute = {
-                    name:payload.name,
+                    name: payload.name,
                     _id: id,
                     items: [payload.items]
                 };
@@ -36,7 +38,7 @@ export default (state = initState, {type, payload}) => {
             return produce(state, draft => {
                 draft.routes.forEach((item, index) => {
                     if (item.id === payload.id) {
-                       item.items.push(payload.item)
+                        item.items.push(payload.item)
                     }
                 })
             })
@@ -44,6 +46,29 @@ export default (state = initState, {type, payload}) => {
         case'USER:FETCH_EVENTS': {
             return produce(state, draft => {
                 draft.events.push(...payload)
+            })
+        }
+        case'USER:FETCH_ROUTES': {
+            return produce(state, draft => {
+                draft.routes.push(...payload)
+            })
+        }
+        case'USER:FETCH_EVENTS_BY_ID': {
+            return produce(state, draft => {
+                state.events.forEach((item, index) => {
+                    if (item.id === payload) {
+                        draft.selectEvent = item
+                    }
+                })
+            })
+        }
+        case'USER:FETCH_ROUTE_BY_ID': {
+            return produce(state, draft => {
+                state.routes.forEach((item, index) => {
+                    if (item._id === payload) {
+                        draft.selectRoute = item
+                    }
+                })
             })
         }
         default:

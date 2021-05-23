@@ -373,15 +373,32 @@
     object-fit: cover;
     width: 94px;
   }
+.eventItemContent{
+  margin-top: 5px;
+  margin-left: 10px;
 
   p {
-    margin-top: 20px;
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
     line-height: 20px;
-    margin-left: 20px;
     letter-spacing: 0.03em;
     color: #4F4F4F;
+    margin-bottom: 15px;
+  }
+}
+
+}
+
+.routeListWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .routeListHeader {
+
+  }
+
+  .routeListContent {
+
   }
 }
