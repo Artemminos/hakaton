@@ -19,7 +19,8 @@ const RouteComponent = ({
                             routes,
                             fetchRouteById,
                             pushItemToRoute,
-                            currentArray
+                            currentArray,
+                            deleteRouteItem
                         }) => {
     let id = Number(location.pathname.slice(8));
     const [popUpStatus, setPopStatus] = React.useState(true);
@@ -52,6 +53,7 @@ const RouteComponent = ({
     }
 
     if (!currentArray.items) return <div/>
+
     return (
         <div ref={routeRef} className={styles.route}>
             <div className={styles.favorites}>
@@ -90,7 +92,7 @@ const RouteComponent = ({
             <PopUp
                 setPopStatus={setPopStatus}
                 createRoute={createRoute} context={context}
-                deleteItemHandler={deleteItemHandler} item={currentItem}
+                deleteItemHandler={deleteRouteItem} item={currentItem}
                 ref={popUpRef}
                 status={context.toggleStatus}/>
         </div>
@@ -209,6 +211,7 @@ const mapDispatchToProps = (dispatch) => {
         removeUserFavorites: (prop) => dispatch(actions.removeUserFavorites(prop)),
         createRoute: (prop) => dispatch(actions.createRoute(prop)),
         pushItemToRoute: (prop) => dispatch(actions.pushItemToRoute(prop)),
+        deleteRouteItem:(prop)=>dispatch(actions.deleteRouteItem(prop)),
         fetchRouteById: (prop) => dispatch(actions.fetchRouteById(prop)),
 
     }

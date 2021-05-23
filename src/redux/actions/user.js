@@ -32,6 +32,10 @@ const actions = {
         type: 'USER:FETCH_ROUTE_BY_ID',
         payload: data
     }),
+    deleteRouteItem: data => ({
+        type: 'USER:DELETE_ROUTE_ITEM',
+        payload: data
+    }),
 
 
 

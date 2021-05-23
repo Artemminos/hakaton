@@ -71,6 +71,19 @@ export default (state = initState, {type, payload}) => {
                 })
             })
         }
+        case'USER:DELETE_ROUTE_ITEM': {
+            return produce(state, draft => {
+                let newArr = {
+                    _id: state.selectRoute._id,
+                    name: state.selectRoute.name,
+                    image: state.selectRoute.image,
+                    description: state.selectRoute.description,
+                    mark: state.selectRoute.mark,
+                    items: state.selectRoute.items.filter((elem) => elem.id !== payload)
+                }
+                draft.selectRoute = newArr;
+            })
+        }
         default:
             return state
     }
