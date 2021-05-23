@@ -10,9 +10,11 @@
   height: 100%; /* Высота изображении */
   object-fit: cover; /* Вписываем фотографию в область */
 }
-.sliderItem{
+
+.sliderItem {
   color: white;
-  b{
+
+  b {
     display: flex;
     justify-content: end;
     color: #ffffff;
@@ -24,6 +26,7 @@
 
   }
 }
+
 .mask {
   position: fixed;
   top: 0;
@@ -185,6 +188,45 @@
       margin: 10px 0;
       display: flex;
       justify-content: space-between;
+
+      a {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+
+        letter-spacing: 0.03em;
+
+
+        color: #BDBDBD;
+      }
+    }
+
+    .routesTimeEvent {
+
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 20px;
+      margin: 5px 0;
+      letter-spacing: 0.02em;
+
+
+      color: #4F4F4F;
+    }
+
+
+
+    .routesDescription {
+      height: 30px;
+      margin: 10px 0;
+    }
+
+    .eventMarkLeftBar {
+      span {
+        margin-left: 15px;
+        margin-bottom: 6px;
+      }
     }
 
     .eventPlayer {
@@ -221,6 +263,15 @@
       flex-direction: column;
       position: relative;
       top: 109px;
+      button{
+        margin-top: 10px;
+      }
+      a{
+        margin-top: 10px;
+        border: 1px solid #FE4B12;
+        padding: 6px 122px;
+        color: #FE4B12;
+      }
     }
   }
 

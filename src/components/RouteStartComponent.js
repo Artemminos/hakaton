@@ -30,19 +30,18 @@ const contentStyle = {
     textAlign: 'center',
 };
 
-const EventComponent = ({
-                            location,
-                            fetchEventById,
-                            selectEvent,
-                            favorites,
-                            setFavorites,
-                            removeUserFavorites,
-                            createRoute,
-                            pushItemToRoute,
-                            routes
-                        }) => {
-
-    let id = Number(location.pathname.slice(7));
+const RouteStartComponent = ({
+                                 location,
+                                 fetchRouteById,
+                                 selectRoute,
+                                 favorites,
+                                 setFavorites,
+                                 removeUserFavorites,
+                                 createRoute,
+                                 pushItemToRoute,
+                                 routes
+                             }) => {
+    let id = Number(location.pathname.slice(12));
     const [popUpRate, setPopRate] = React.useState(false);
     const [popUpAudio, setPopUpAudio] = React.useState(false);
     const [popUpStatus, setPopUpStatus] = React.useState(false);
@@ -65,16 +64,16 @@ const EventComponent = ({
         context.toggle.toggle(false);
     }, [popUpRef, addRouteItemPopUp, btnRef, addItemBtnRef, popRef]);
     React.useEffect(() => {
-        fetchEventById(id)
+        fetchRouteById(id)
     }, [id, btnRef]);
     let audio = new Audio(metallica);
     return (
         <div className={styles.event}>
 
-            <h1 className={styles.eventHeader}>{selectEvent.name}</h1>
+            <h1 className={styles.eventHeader}>{selectRoute.name}</h1>
             <div className={styles.eventSlider}>
                 <Carousel>
-                    {selectEvent?.img?.map((item, index) => {
+                    {selectRoute?.img?.map((item, index) => {
                         return (
                             <div>
                                 <div style={contentStyle}>
@@ -95,8 +94,8 @@ const EventComponent = ({
                 }}>оценка {rate}</a>
                 <div className={styles.eventMarkLeftBar}>
                     <Rate count={1} onChange={(e) => {
-                        !favoritesStatus && setFavorites(selectEvent)
-                        favoritesStatus && removeUserFavorites(selectEvent)
+                        !favoritesStatus && setFavorites(selectRoute)
+                        favoritesStatus && removeUserFavorites(selectRoute)
                         setFavoriteStatus(e)
                     }} value={favoritesStatus}/>
 
@@ -107,7 +106,7 @@ const EventComponent = ({
                     }} className={styles.icon}/>
                 </div>
             </div>
-            <div className={styles.routesDescription}>    {selectEvent.description}</div>
+            <div className={styles.routesDescription}>    {selectRoute.description}</div>
             <AddRoutePopUp
                 audio={audio}
                 popUpStatus={popUpStatus}
@@ -120,22 +119,22 @@ const EventComponent = ({
                 ref={popUpRef} popUpRate={popUpRate}
                 setPopRate={setPopRate}/>
             <div className={styles.routesTimeEvent}>
-                {selectEvent.date}
+                {selectRoute.date}
             </div>
             <div className={styles.eventInfo}>
                 <div className={styles.eventInfoItem}>
                     <EnvironmentOutlined className={styles.icon}/>
-                    <p>Расстояние: {selectEvent.distance}</p>
+                    <p>Расстояние: {selectRoute.distance}</p>
 
                 </div>
                 <div className={styles.eventInfoItem}>
                     <FieldTimeOutlined className={styles.icon}/>
-                    <p>Сеансы: {selectEvent.time}</p>
+                    <p>Сеансы: {selectRoute.time}</p>
 
                 </div>
                 <div className={styles.eventInfoItem}>
                     <DollarCircleOutlined className={styles.icon}/>
-                    <p>Расход: {selectEvent.cost}</p>
+                    <p>Расход: {selectRoute.cost}</p>
 
                 </div>
 
@@ -150,13 +149,13 @@ const EventComponent = ({
 
                     }}
                     type={'primary'}>Добавить свой маршрут</Button>
-                <Link  to={`/routes/${selectEvent.id}`}>Посмотреть маршрут</Link>
+                <Link  to={`/routes/${selectRoute.id}`}>Посмотреть маршрут</Link>
 
             </div>
             <PopUp
                 status={context.toggleStatus}
                 ref={popRef}
-                item={selectEvent}
+                item={selectRoute}
                 createRoute={createRoute}
                 context={context}
                 setPopStatus={setPopUpAddItemStatus}/>
@@ -166,7 +165,7 @@ const EventComponent = ({
                 setPopStatus={setPopUpAddItemStatus}
                 createRoute={createRoute}
                 context={context}
-                item={selectEvent}
+                item={selectRoute}
                 pushItemToRoute={pushItemToRoute}
                 routes={routes}
             />
@@ -206,9 +205,10 @@ const AddRoutePopUp = React.forwardRef((props, ref) => {
     }
 )
 
+
 const mapStateToProps = (state) => {
     return {
-        selectEvent: state.user.selectEvent,
+        selectRoute: state.user.selectRoute,
         favorites: state.user.favorites,
         routes: state.user.routes,
 
@@ -216,11 +216,11 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchEventById: (data) => dispatch(actions.fetchEventsById(data)),
         setFavorites: (prop) => dispatch(actions.setUserFavorites(prop)),
         removeUserFavorites: (prop) => dispatch(actions.removeUserFavorites(prop)),
         createRoute: (prop) => dispatch(actions.createRoute(prop)),
         pushItemToRoute: (prop) => dispatch(actions.pushItemToRoute(prop)),
+        fetchRouteById: (prop) => dispatch(actions.fetchRouteById(prop)),
 
     }
 }
@@ -316,5 +316,5 @@ const AddRouteItemPopUp = React.forwardRef((props, ref) => {
 })
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    withRouter)(EventComponent)
+    withRouter)(RouteStartComponent)
 

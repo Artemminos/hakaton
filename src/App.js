@@ -96,6 +96,9 @@ const App = ({fetchEvents, fetchRoutes}) => {
             mark:4,
             description:'Описание маршрута',
             image:'',
+            cost:'300 p',
+            time:'69м',
+            distance: '10 км',
             items: [
                 {
                     name: 'Музей',
@@ -147,7 +150,11 @@ const App = ({fetchEvents, fetchRoutes}) => {
             mark:4,
             description:'Описание маршрута',
             image:'',
+            cost:'300 p',
+            time:'69м',
+            date:'26 июня 2021',
 
+            distance: '10 км',
             items: [
                 {
                     name: 'Музей',
@@ -199,6 +206,10 @@ const App = ({fetchEvents, fetchRoutes}) => {
             mark:4,
             description:'Описание маршрута',
             image:'',
+            cost:'300 p',
+            time:'69м',
+            distance: '10 км',
+            date:'26 июня 2021',
 
             items: [
                 {
@@ -251,6 +262,10 @@ const App = ({fetchEvents, fetchRoutes}) => {
             mark:4,
             description:'Описание маршрута',
             image:'',
+            cost:'300 p',
+            time:'69м',
+            distance: '10 км',
+            date:'26 июня 2021',
 
             items: [
                 {
@@ -303,7 +318,10 @@ const App = ({fetchEvents, fetchRoutes}) => {
             mark:4,
             description:'Описание маршрута',
             image:'',
-
+            cost:'300 p',
+            time:'69м',
+            distance: '10 км',
+            date:'26 июня 2021',
             items: [
                 {
                     name: 'Музей',

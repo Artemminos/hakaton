@@ -7,14 +7,20 @@ import Profile from "./profile";
 import MainScreen from "./MainScreen";
 import RoutesList from "./RoutesList";
 import FavoritesComponent from "./FavoritesComponent";
+import RouteStartComponent from "./RouteStartComponent";
 export const Routes = () => {
     return (
         <div className="content-wrap">
             <Switch>
 
-                <Route path='/routesList'>
+                <Route exact path='/routesList'>
                     <RoutesList/>
                 </Route>
+
+                <Route path='/routesList/:id'>
+                    <RouteStartComponent/>
+                </Route>
+
                 <Route path='/routes/:id'>
                     <RouteComponent/>
                 </Route>
@@ -26,6 +32,7 @@ export const Routes = () => {
                 <Route path='/event/:id'>
                     <EventComponent/>
                 </Route>
+
                 <Route path='/profile'>
                     <Profile/>
                 </Route>

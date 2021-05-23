@@ -16,7 +16,7 @@ const RoutesList = ({routes}) => {
             <div className={classes.routeListContent}>
                 {routes.map((item, index) => {
                     return (
-                        <Link to={`/routes/${item._id}`}>
+                        <Link to={`/routesList/${item._id}`}>
                             <EventItem srcAvatar={item.image} mark={item.mark} description={item.description}
                                        text={item.name}/>
                         </Link>

@@ -93,8 +93,12 @@ export default (state = initState, {type, payload}) => {
                     _id: state.selectRoute._id,
                     name: state.selectRoute.name,
                     image: state.selectRoute.image,
+                    distance:state.selectRoute.distance,
+                    cost:state.selectRoute.cost,
+                    time:state.selectRoute.time,
                     description: state.selectRoute.description,
                     mark: state.selectRoute.mark,
+                    date:state.selectRoute.mark,
                     items: state.selectRoute.items.filter((elem) => elem.id !== payload)
                 }
                 draft.selectRoute = newArr;
