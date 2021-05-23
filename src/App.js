@@ -1,15 +1,20 @@
 import React from 'react';
 import {withRouter} from "react-router";
 import {compose} from "redux";
-import {Routes} from "./components/Routes";
-import {useDispatch, useSelector} from 'react-redux';
-import {YMaps, Map, RoutePanel, Button} from 'react-yandex-maps';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import styles from './common/mainStyles.module.scss'
 import {configResponsive, useLocalStorageState, useResponsive, useToggle} from 'ahooks';
 import {Header} from "./components/Header";
 import {Content} from "./components/Content";
 import {Footer} from "./components/Footer";
 import classNames from 'class-names';
+import actions from "./redux/actions/user";
+import img1 from "./static/jekskursija-v-grajvoron-iz-belgoroda-1.jpg";
+import img2 from "./static/jekskursija-v-grajvoron-iz-belgoroda-2.jpg";
+import img3 from "./static/jekskursija-v-grajvoron-iz-belgoroda-3.jpg";
+import img4 from "./static/jekskursija-v-grajvoron-iz-belgoroda-4.jpg";
+import img5 from "./static/jekskursija-v-grajvoron-iz-belgoroda-5.jpg";
+
 export const MainContext = React.createContext({})
 
 configResponsive({
@@ -19,56 +24,73 @@ configResponsive({
     extra_large: 1100
 });
 
-const App = () => {
+const App = ({fetchEvents}) => {
+    let dataArray = [
 
-    const responsive = useResponsive();
+        {
+            name: 'Музей',
+            time: '60м',
+            checked: false,
+            description: 'Музей природы Белогорья',
+            id: 1,
+            img: [img1, img2, img3, img4, img5]
+        },
+        {
+            name: 'Дача',
+            time: '60м',
+            checked: false,
+            description: 'бывшая барская дача «Дьяков сад»;',
+            id: 2,
+            img: [img1, img2, img3, img4, img5]
+        },
+        {
+            name: 'урочище',
+            time: '60м',
+            checked: false,
+            description: 'урочище «Осиновое» – природная лесостепная дубрава;',
+            id: 3,
+            img: [img1, img2, img3, img4, img5]
+        },
+        {
+            name: 'сосновый бор',
+            time: '60м',
+            checked: false,
+            description: 'сосновый бор;',
+            id: 4,
+            img: [img1, img2, img3, img4, img5]
+        },
+        {
+            name: 'меловые обнажения',
+            time: '60м',
+            checked: false,
+            description: 'меловые обнажения – уникальные экосистемы Белгородчины;',
+            id: 5,
+            img: [img1, img2, img3, img4, img5]
+        },
+        {
+            name: 'родники',
+            time: '60м',
+            checked: false,
+            description: 'родники',
+            id: 6,
+            img: [img1, img2, img3, img4, img5]
+        },
+
+    ]
     const [cookie, setCookie] = useLocalStorageState('cookie', false);
-    const dispatch = useDispatch();
-    //  const isAuth = useSelector();
-// https://react-yandex-maps.vercel.app/controls/route-panel
-    //https://www.npmjs.com/package/ymaps-list
-//https://yandex.ru/dev/maps/jsbox/2.1/multiroute_driving
-   /* function script(url) {
-        if (Array.isArray(url)) {
-            let self = this;
-            let prom = [];
-            url.forEach(function (item) {
-                prom.push(self.script(item));
-            });
-            return Promise.all(prom);
-        }
 
-        return new Promise(function (resolve, reject) {
-            let r = false;
-            let t = document.getElementsByTagName('script')[0];
-            let s = document.createElement('script');
-
-            s.type = 'text/javascript';
-            s.src = url;
-            s.async = true;
-            s.onload = s.onreadystatechange = function () {
-                if (!r && (!this.readyState || this.readyState === 'complete')) {
-                    r = true;
-                    resolve(this);
-                }
-            };
-            s.onerror = s.onabort = reject;
-            t.parentNode.insertBefore(s, t);
-        });
-    }
-
-    script('//api-maps.yandex.ru/2.1/?apikey=106b8cb7-1a46-4beb-9671-03da8c4f3a61&lang=ru_RU').then(() => {
-    });
-    console.log(global.ymaps)*/
+    React.useEffect(() => {
+        fetchEvents(dataArray)
+    }, [])
     const [toggleStatus, toggle] = useToggle();
     return (
         <MainContext.Provider
             value={{
-                toggle:toggle,
-                toggleStatus:toggleStatus
+                toggle: toggle,
+                toggleStatus: toggleStatus
             }}>
 
-            <div className={classNames(styles.mask,{[styles.mask_show]:toggleStatus})}/>
+            <div className={classNames(styles.mask, {[styles.mask_show]: toggleStatus})}/>
 
             <div className={styles.wrapper}>
                 <Header/>
@@ -80,7 +102,18 @@ const App = () => {
     );
 };
 
-export default withRouter(App)
+const mapStateToProps = (state) => {
+    return {}
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchEvents: (data) => dispatch(actions.fetchEvents(data))
+    }
+}
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter)(App)
 
 
 

@@ -4,6 +4,7 @@ import React from "react";
 import RouteComponent from "./RouteComponent";
 import EventComponent from "./EventComponent";
 import {Profile} from "./profile";
+import MainScreen from "./MainScreen";
 
 export const Routes = () => {
     return (
@@ -11,7 +12,7 @@ export const Routes = () => {
             <Switch>
 
                 <Route path='/search'>
-                    <div>search </div>
+                    <div>search</div>
                 </Route>
                 <Route path='/routes/:id'>
                     <RouteComponent/>
@@ -25,8 +26,8 @@ export const Routes = () => {
                 </Route>
 
 
-                <Route  path='/'>
-                    <div>главная</div>
+                <Route path='/'>
+                    <MainScreen/>
                 </Route>
                 <Route path='*' render={() => <div>нет страницы</div>}/>
             </Switch>

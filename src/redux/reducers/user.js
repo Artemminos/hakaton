@@ -2,7 +2,9 @@ import produce from "immer";
 
 const initState = {
     favorites: [],
-    routes: []
+    routes: [],
+    events: [],
+
 };
 
 
@@ -37,6 +39,11 @@ export default (state = initState, {type, payload}) => {
                        item.items.push(payload.item)
                     }
                 })
+            })
+        }
+        case'USER:FETCH_EVENTS': {
+            return produce(state, draft => {
+                draft.events.push(...payload)
             })
         }
         default:

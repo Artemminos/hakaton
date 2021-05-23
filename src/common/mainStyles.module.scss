@@ -179,14 +179,17 @@
     .eventInfo {
       margin: 10px 0;
       height: 18vh;
-      .eventInfoItem{
+
+      .eventInfoItem {
         display: flex;
-        .icon{
+
+        .icon {
           font-size: 20px;
           margin-right: 5px;
           color: #BDBDBD;
         }
-        p{
+
+        p {
           font-size: 15px;
 
         }
@@ -301,7 +304,7 @@
   background-color: #4F4F4F;
   position: fixed;
   height: 46px;
-  width: 51vh;
+  width: 52vh;
   border-radius: 7px;
   bottom: 12px;
   left: 15px;
@@ -318,4 +321,67 @@
 
 .hide {
   display: none;
+}
+
+.homeWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .homeHeader {
+
+  }
+
+  .homeContent {
+    margin-top: 15px;
+
+    h2 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 26px;
+      letter-spacing: 0.03em;
+      color: #4F4F4F;
+    }
+  }
+
+  .homeFooter {
+    display: flex;
+    margin-top: 10px;
+    height: 120px;
+
+    button {
+      width: 100%;
+      height: 41px;
+
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+
+}
+
+.eventItemWrapper {
+  margin-top: 10px;
+  height: 110px;
+  width: 100%;
+  display: flex;
+  background-color: #F2F2F2;
+  object-fit: cover;
+
+  img {
+    object-fit: cover;
+    width: 94px;
+  }
+
+  p {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 20px;
+    margin-left: 20px;
+    letter-spacing: 0.03em;
+    color: #4F4F4F;
+  }
 }
