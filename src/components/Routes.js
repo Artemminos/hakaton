@@ -1,4 +1,4 @@
-import {Route, Switch} from "react-router";
+import {Redirect, Route, Switch} from "react-router";
 
 import React from "react";
 import RouteComponent from "./RouteComponent";
@@ -8,6 +8,7 @@ import MainScreen from "./MainScreen";
 import RoutesList from "./RoutesList";
 import FavoritesComponent from "./FavoritesComponent";
 import RouteStartComponent from "./RouteStartComponent";
+
 export const Routes = () => {
     return (
         <div className="content-wrap">
@@ -37,11 +38,15 @@ export const Routes = () => {
                     <Profile/>
                 </Route>
 
+                <Route path='/sidebar'>
+                    тут будет сайд бар
+                </Route>
+
 
                 <Route path='/home'>
                     <MainScreen/>
                 </Route>
-                <Route path='*' render={() => <div>нет страницы</div>}/>
+                <Route path='*' render={() => <Redirect to={'/home'}/>}/>
             </Switch>
 
 

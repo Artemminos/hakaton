@@ -460,7 +460,6 @@ const App = ({fetchEvents, fetchRoutes}) => {
                 <Header/>
                 <Content/>
                 <Footer/>
-                <Sidebar/>
             </div>
         </MainContext.Provider>
 

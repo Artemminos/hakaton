@@ -22,8 +22,8 @@ import {withRouter} from "react-router";
                 </Link>
             </div>
             <div >
-                <Link to={'/routes/1'}>
-                    <MenuOutlined style={{color:pathname.includes('/routes')&&'orange'}} className={styles.nav_bar_icon}/>
+                <Link to={'/sidebar'}>
+                    <MenuOutlined style={{color:pathname.includes('/sidebar')&&'orange'}} className={styles.nav_bar_icon}/>
                 </Link>
             </div>
         </div>
